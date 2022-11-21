@@ -1,6 +1,6 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import "./App.css";
+import "./App.scss";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import InputName from "./components/InputName";
 import Pokedex from "./components/Pokedex";

@@ -48,7 +48,7 @@ const [namePokemon, setNamePokemon] = useState("")
       </select>
       <ul>
         {pokemons.map((pokemon) => (
-          <li key={pokemon.url? pokemon.url : pokemon.pokemon.url}>
+          <li className="card" key={pokemon.url? pokemon.url : pokemon.pokemon.url}>
           <PokemonCard pokemonUrl={pokemon.url? pokemon.url : pokemon.pokemon.url}/>
           
           </li>

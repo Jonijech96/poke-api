@@ -13,7 +13,7 @@ const PokemonCard = ({pokemonUrl}) => {
   // console.log(pokemon);
   
   return (
-    <Link to={`/pokedex/${pokemon.id}`}>
+    <Link to={`/pokedex/${pokemon.id}`} className='pokemon-card'>
     <p>{pokemon.name}</p>
     <img src={pokemon.sprites?.other.dream_world.front_default} alt="" />
     </Link>

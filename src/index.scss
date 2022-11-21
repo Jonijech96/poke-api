@@ -1,3 +1,13 @@
+// abstracts
+@use './scss/abstracts/mixins';
+@use './scss/abstracts/variable';
+
+// base
+@use './scss/base/base';
+@use './scss/base/resets';
+
+// components
+@use './scss/components/pokemonCard'
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
