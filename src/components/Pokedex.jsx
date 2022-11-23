@@ -30,7 +30,7 @@ const [namePokemon, setNamePokemon] = useState("")
     axios.get(e.target.value)
     .then(res=>setPokemons(res.data.pokemon))
   }
-  console.log(pokemons);
+  // console.log(pokemons);
   return (
     <div>
       <h1>bienvenido {userName}!</h1>
@@ -46,7 +46,7 @@ const [namePokemon, setNamePokemon] = useState("")
           <option key={type.url} value={type.url}>{type.name}</option>
         ))}
       </select>
-      <ul>
+      <ul className="grid">
         {pokemons.map((pokemon) => (
           <li className="card" key={pokemon.url? pokemon.url : pokemon.pokemon.url}>
           <PokemonCard pokemonUrl={pokemon.url? pokemon.url : pokemon.pokemon.url}/>

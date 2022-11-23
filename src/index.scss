@@ -7,7 +7,11 @@
 @use './scss/base/resets';
 
 // components
-@use './scss/components/pokemonCard'
+@use './scss/components/pokemonCard';
+@use './scss/components/pokedex';
+@use './scss/components/inputName';
+@use './scss/components/header';
+@use './scss/components/footer'
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;

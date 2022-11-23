@@ -6,10 +6,15 @@ import InputName from "./components/InputName";
 import Pokedex from "./components/Pokedex";
 import PokemonDetails from "./components/PokemonDetails";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Header from './components/Header'
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <HashRouter>
+    <div className="App">
+
+      <Header />
       <Routes>
         <Route path="/" element={<InputName />} />
 
@@ -18,6 +23,9 @@ function App() {
           <Route path="/pokedex/:id" element={<PokemonDetails />} />
         </Route>
       </Routes>
+      <Footer />
+    </div>
+
     </HashRouter>
   );
 }

@@ -7,21 +7,24 @@ const InputName = () => {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const enterName = () => {
+  const enterName = (e) => {
+    e.preventDefault();
     dispatch(changeName(input));
     navigate("/pokedex");
   };
 
   return (
-    <div>
-      InputName
+    <div className="input-name__content">
+      
       <h1>nuevo name</h1>
+      <form action="" onSubmit={enterName}>
       <input
         type="text"
         onChange={(e) => setInput(e.target.value)}
         value={input}
       />
-      <button onClick={enterName}>Enviar</button>
+      <button>Enviar</button>
+      </form>
     </div>
   );
 };
