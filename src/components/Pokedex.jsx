@@ -6,30 +6,26 @@ import PokemonCard from "./PokemonCard";
 
 const Pokedex = () => {
   const userName = useSelector((state) => state.name);
-const [namePokemon, setNamePokemon] = useState("")
+  const [namePokemon, setNamePokemon] = useState("");
   const [pokemons, setPokemons] = useState([]);
   const [types, setTypes] = useState([]);
   useEffect(() => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10")
       .then((res) => setPokemons(res.data.results));
-    
-    
-      axios
+
+    axios
       .get("https://pokeapi.co/api/v2/type/")
       .then((res) => setTypes(res.data.results));
-
-      
   }, []);
   const navigate = useNavigate();
-  const searchPokemon = ()=>{
+  const searchPokemon = () => {
     navigate(`/pokedex/${namePokemon.toLowerCase()}`);
-  }
-  const filterType = (e)=>{
+  };
+  const filterType = (e) => {
     alert(e.target.value);
-    axios.get(e.target.value)
-    .then(res=>setPokemons(res.data.pokemon))
-  }
+    axios.get(e.target.value).then((res) => setPokemons(res.data.pokemon));
+  };
   // console.log(pokemons);
   return (
     <div>
@@ -38,19 +34,25 @@ const [namePokemon, setNamePokemon] = useState("")
         type="text"
         placeholder="search pokemon"
         value={namePokemon}
-        onChange={(e)=>setNamePokemon(e.target.value)}
+        onChange={(e) => setNamePokemon(e.target.value)}
       />
       <button onClick={searchPokemon}>Buscar</button>
       <select onChange={filterType} name="" id="">
-        {types.map(type=>(
-          <option key={type.url} value={type.url}>{type.name}</option>
+        {types.map((type) => (
+          <option key={type.url} value={type.url}>
+            {type.name}
+          </option>
         ))}
       </select>
       <ul className="grid">
         {pokemons.map((pokemon) => (
-          <li className="card" key={pokemon.url? pokemon.url : pokemon.pokemon.url}>
-          <PokemonCard pokemonUrl={pokemon.url? pokemon.url : pokemon.pokemon.url}/>
-          
+          <li
+            className=""
+            key={pokemon.url ? pokemon.url : pokemon.pokemon.url}
+          >
+            <PokemonCard
+              pokemonUrl={pokemon.url ? pokemon.url : pokemon.pokemon.url}
+            />
           </li>
         ))}
       </ul>
