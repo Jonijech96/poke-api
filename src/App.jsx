@@ -6,7 +6,7 @@ import InputName from "./components/InputName";
 import Pokedex from "./components/Pokedex";
 import PokemonDetails from "./components/PokemonDetails";
 import ProtectedRoutes from "./components/ProtectedRoutes";
-import Header from './components/Header'
+import Navbar from './components/Navbar'
 import Footer from "./components/Footer";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <HashRouter>
     <div className="App">
 
-      <Header />
+      <Navbar />
       <Routes>
         <Route path="/" element={<InputName />} />
 

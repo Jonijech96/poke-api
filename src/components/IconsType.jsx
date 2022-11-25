@@ -3,14 +3,14 @@ import iconType from "../assets/icons/iconsTipe";
 const IconsType = ({ types }) => {
   // console.log(types);
   return (
-    <div>
+    <>
       {types?.map((type) => (
-        <span className="type">
+        <span key={type.type.name} className={`type type--${type.type.name}`}>
+          <img className="type__icon" src={iconType[type.type.name]} alt="" />
           <span>{type.type.name}</span>
-          <img src={iconType[type.type.name]} alt="" />
         </span>
       ))}
-    </div>
+    </>
   );
 };
 

@@ -1,18 +1,24 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import PokemonCard from "./PokemonCard";
+import { motion } from "framer-motion"
+import { setIsLoading } from "../store/slices/isLoadingSlice";
+
 
 const Pokedex = () => {
   const userName = useSelector((state) => state.name);
   const [namePokemon, setNamePokemon] = useState("");
   const [pokemons, setPokemons] = useState([]);
   const [types, setTypes] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setIsLoading(true));
     axios
       .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10")
-      .then((res) => setPokemons(res.data.results));
+      .then((res) => setPokemons(res.data.results))
+      .finally(()=>dispatch(setIsLoading(false)))
 
     axios
       .get("https://pokeapi.co/api/v2/type/")
@@ -23,12 +29,39 @@ const Pokedex = () => {
     navigate(`/pokedex/${namePokemon.toLowerCase()}`);
   };
   const filterType = (e) => {
-    alert(e.target.value);
-    axios.get(e.target.value).then((res) => setPokemons(res.data.pokemon));
+    // alert(e.target.value);
+    dispatch(setIsLoading(true));
+    axios.get(e.target.value)
+    .then((res) => setPokemons(res.data.pokemon))
+    .finally(()=>dispatch(setIsLoading(false)))
   };
   // console.log(pokemons);
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.15
+      }
+    }
+  }
+  
+  const itemPokemon = {
+    hidden: { opacity: 0,scale:0 },
+    show: { opacity: 1,scale:1 }
+  }
+  const isLoading = useSelector((state) => state.isLoading);
+  if(isLoading){
+    return (
+      <div className="spinner">
+        <div className="circle">soy un loading</div>
+      </div>
+    )
+  }
   return (
     <div>
+      <header className="header">
+
       <h1>bienvenido {userName}!</h1>
       <input
         type="text"
@@ -44,18 +77,25 @@ const Pokedex = () => {
           </option>
         ))}
       </select>
-      <ul className="grid">
+      </header>
+      <motion.ul 
+      className="grid"
+      variants={container}
+    initial="hidden"
+    animate="show"
+    >
         {pokemons.map((pokemon) => (
-          <li
+          <motion.li
+            variants={itemPokemon}
             className=""
             key={pokemon.url ? pokemon.url : pokemon.pokemon.url}
           >
             <PokemonCard
               pokemonUrl={pokemon.url ? pokemon.url : pokemon.pokemon.url}
             />
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </div>
   );
 };

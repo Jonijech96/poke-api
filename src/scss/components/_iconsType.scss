@@ -1,0 +1,13 @@
+@use '../abstracts/mixins';
+
+.type{
+  width: 95px;
+  border-radius: 10px;
+  padding: 5px 10px;
+
+  @include mixins.flex(row,space-between,center);
+  &__icon{
+    filter: invert(1);
+  }
+
+}
