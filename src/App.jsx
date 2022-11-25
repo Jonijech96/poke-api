@@ -16,7 +16,7 @@ function App() {
 
       <Navbar />
       <Routes>
-        <Route path="/" element={<InputName />} />
+        <Route index element={<InputName />} />
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/pokedex" element={<Pokedex />} />

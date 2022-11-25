@@ -4,3 +4,17 @@
   justify-content: $justify;
   align-items: $align;
 }
+@mixin container($width,$maxWidth){
+  width: $width;
+  max-width: $maxWidth;
+  margin: 0 auto;
+}
+
+@mixin patternPosition(){
+  position: absolute;
+  fill: var(--white-2);
+  bottom: -38px;
+  
+  scale: 1.4;
+  @content;
+}

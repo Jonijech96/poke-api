@@ -1,4 +1,16 @@
+@use '../abstracts/mixins';
+
 .footer{
+  
   text-align: center;
-  padding: 20px 0;
+  &__text{
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+  }
+  &__pattern{
+    @include mixins.patternPosition(){
+      left: 20px
+    };
+  }
 }

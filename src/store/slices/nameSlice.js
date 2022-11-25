@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  value: "",
-};
+
 
 export const nameSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: "",
   reducers: {
     changeName: (state, action) => {
       const userName = action.payload;

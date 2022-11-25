@@ -7,6 +7,7 @@ const InputName = () => {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   const enterName = (e) => {
     e.preventDefault();
     dispatch(changeName(input));
@@ -16,7 +17,7 @@ const InputName = () => {
   return (
     <div className="input-name__content">
       
-      <h1>nuevo name</h1>
+      <h1>Enter your name</h1>
       <form action="" onSubmit={enterName}>
       <input
         type="text"

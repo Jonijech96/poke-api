@@ -5,8 +5,10 @@
 
 
 .grid{
+  padding-bottom: 50px;
+  max-width: 1200px;
   margin: auto;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%,19rem),1fr));
     display: grid;
     justify-items: center;
     width: 90%;

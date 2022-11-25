@@ -3,14 +3,14 @@
 @use './scss/abstracts/variable';
 
 // base
-@use './scss/base/base';
 @use './scss/base/resets';
+@use './scss/base/base';
 
 // components
 @use './scss/components/pokemonCard';
 @use './scss/components/pokedex';
 @use './scss/components/inputName';
-@use './scss/components/header';
+@use './scss/components/navbar';
 @use './scss/components/footer';
 @use './scss/components/iconsType';
 /* :root {

@@ -1,8 +1,16 @@
 import React from 'react'
+import Pokeball from './icons/Pokeball'
 
 const Footer = () => {
   return (
-    <footer className='footer'>Made with ♥ in Academlo</footer >
+    <footer className='footer'>
+      <div className="line">
+      <Pokeball className="footer__pattern"/>
+      </div>
+      <p className='footer__text'>
+      Made with ♥ in Academlo
+      </p>  
+    </footer >
   )
 }
 

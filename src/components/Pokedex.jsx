@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import PokemonCard from "./PokemonCard";
 import { motion } from "framer-motion"
 import { setIsLoading } from "../store/slices/isLoadingSlice";
+import LoadingScreen from "./LoadingScreen";
 
 
 const Pokedex = () => {
@@ -51,13 +52,13 @@ const Pokedex = () => {
     show: { opacity: 1,scale:1 }
   }
   const isLoading = useSelector((state) => state.isLoading);
-  if(isLoading){
-    return (
-      <div className="spinner">
-        <div className="circle">soy un loading</div>
-      </div>
-    )
-  }
+  // if(isLoading){
+  //   return (
+  //     <div className="spinner">
+  //       <div className="circle">soy un loading</div>
+  //     </div>
+  //   )
+  // }
   return (
     <div>
       <header className="header">
@@ -78,6 +79,8 @@ const Pokedex = () => {
         ))}
       </select>
       </header>
+      {isLoading ? <LoadingScreen /> : (
+
       <motion.ul 
       className="grid"
       variants={container}
@@ -96,6 +99,7 @@ const Pokedex = () => {
           </motion.li>
         ))}
       </motion.ul>
+      )}
     </div>
   );
 };
