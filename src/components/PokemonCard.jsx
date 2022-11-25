@@ -22,6 +22,7 @@ const PokemonCard = ({ pokemonUrl }) => {
   // console.log(pokemon.types?.[0].type.name);
   
   return (
+    <>
     <div className={`card ${pokemon.types?.[0].type.name}`}>
       <Link to={`/pokedex/${pokemon.id}`}>
         <div className="card__content">
@@ -48,6 +49,7 @@ const PokemonCard = ({ pokemonUrl }) => {
         </div>
       </Link>
     </div>
+    </>
   );
 };
 

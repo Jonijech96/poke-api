@@ -2,7 +2,10 @@ import React from 'react'
 
 const LoadingScreen = () => {
   return (
-    <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div className="grid__container">
+
+      <div className="wobbling-10"></div>
+    </div>
   )
 }
 

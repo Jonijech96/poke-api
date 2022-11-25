@@ -60,7 +60,7 @@ const Pokedex = () => {
   //   )
   // }
   return (
-    <div>
+    <>
       <header className="header">
 
       <h1>bienvenido {userName}!</h1>
@@ -79,6 +79,7 @@ const Pokedex = () => {
         ))}
       </select>
       </header>
+
       {isLoading ? <LoadingScreen /> : (
 
       <motion.ul 
@@ -100,7 +101,7 @@ const Pokedex = () => {
         ))}
       </motion.ul>
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,38 @@
+@use '../abstracts/mixins';
+
+.pokemon{
+  @include mixins.flex(column,center,center);
+  height: 100%;
+  &__img{
+    width: 50%;
+    max-width: 300px;
+    z-index: 1;
+    &__content{
+      @include mixins.flex(row,center,center);
+      padding: 40px 0;
+      position: relative;
+      width: 100%;
+      border-radius: 0 0 50px 50px;
+    }
+    &__pattern{
+      position: absolute;
+      fill: #ffffff49;
+      scale: 3.8;
+      bottom: 35%;
+    }
+  }
+  &__types{
+    @include mixins.flex(row,center,center,10px);
+  }
+  &__moves{
+    @include mixins.container(90%,1200px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    &__item{
+      background-color: rgb(192, 192, 190);
+      padding: 5px;
+      border-radius: 10px;
+    }
+  }
+}

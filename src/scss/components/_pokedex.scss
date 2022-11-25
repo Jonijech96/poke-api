@@ -5,6 +5,10 @@
 
 
 .grid{
+  &__container{
+    display: grid;
+    place-items: center;
+  }
   padding-bottom: 50px;
   max-width: 1200px;
   margin: auto;
@@ -13,5 +17,6 @@
     justify-items: center;
     width: 90%;
     gap: 20px;
+    
 }
 

@@ -1,8 +1,9 @@
-@mixin flex($direction,$justify,$align){
+@mixin flex($direction,$justify,$align,$gap:0){
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+  gap: $gap;
 }
 @mixin container($width,$maxWidth){
   width: $width;

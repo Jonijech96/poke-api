@@ -1,7 +1,8 @@
 @use '../abstracts/mixins';
 
 .nav{
-  padding: 20px 0;
+  padding-top: 20px;
+  z-index: 1;
   &__content{
     @include mixins.container(90%,1200px);
     @include mixins.flex(row,space-between,center);
