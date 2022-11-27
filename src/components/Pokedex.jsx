@@ -6,6 +6,8 @@ import PokemonCard from "./PokemonCard";
 import { motion } from "framer-motion"
 import { setIsLoading } from "../store/slices/isLoadingSlice";
 import LoadingScreen from "./LoadingScreen";
+import Pagination from "./Pagination";
+import Settings from "./Settings";
 
 
 const Pokedex = () => {
@@ -42,7 +44,7 @@ const Pokedex = () => {
     show: {
       opacity: 1,
       transition: {
-        delayChildren: 0.15
+        staggerChildren: 0.4,
       }
     }
   }
@@ -52,13 +54,12 @@ const Pokedex = () => {
     show: { opacity: 1,scale:1 }
   }
   const isLoading = useSelector((state) => state.isLoading);
-  // if(isLoading){
-  //   return (
-  //     <div className="spinner">
-  //       <div className="circle">soy un loading</div>
-  //     </div>
-  //   )
-  // }
+
+  const [page, setPage] = useState(0);
+  const [forPage, setForPage] = useState(7)
+  let pageMax = Math.ceil(pokemons.length / forPage);
+  const [activeSetings, setActiveSetings] = useState(false);
+ 
   return (
     <>
       <header className="header">
@@ -80,15 +81,16 @@ const Pokedex = () => {
       </select>
       </header>
 
+      <Pagination max={pageMax} setPage={setPage} page={page}/>
       {isLoading ? <LoadingScreen /> : (
-
       <motion.ul 
       className="grid"
       variants={container}
     initial="hidden"
     animate="show"
     >
-        {pokemons.map((pokemon) => (
+        {
+        pokemons.slice(page * forPage, (page * forPage) + forPage).map((pokemon) => (
           <motion.li
             variants={itemPokemon}
             className=""
@@ -101,6 +103,9 @@ const Pokedex = () => {
         ))}
       </motion.ul>
       )}
+      <Pagination max={pageMax} setPage={setPage} page={page}/>
+      <button className="buttonSetting" onClick={()=>setActiveSetings(!activeSetings)}>activeSetinngs</button>
+      {activeSetings && <Settings setActiveSetings={setActiveSetings} setForPage={setForPage} forPage={forPage}/>}
     </>
   );
 };

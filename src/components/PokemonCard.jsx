@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import IconsTipe from "./IconsType";
 import Pokeball from "./icons/Pokeball";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoading } from "../store/slices/isLoadingSlice";
 
@@ -34,8 +34,7 @@ const PokemonCard = ({ pokemonUrl }) => {
           </div>
           <div className="card__img__content">
             <motion.img
-              layoutId={pokemon.sprites?.other.dream_world.front_default ||
-                pokemon.sprites?.other["official-artwork"].front_default}
+              layoutId={pokemon.id}
               className="card__img"
               src={
                 pokemon.sprites?.other.dream_world.front_default ||

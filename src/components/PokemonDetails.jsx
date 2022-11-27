@@ -23,8 +23,7 @@ const PokemonDetails = () => {
 
       <motion.img
       className="pokemon__img"
-      layoutId={pokemon.sprites?.other.dream_world.front_default ||
-        pokemon.sprites?.other["official-artwork"].front_default}
+      layoutId={pokemon.id}
         src={pokemon.sprites?.other.dream_world.front_default || pokemon.sprites?.other['official-artwork'].front_default} alt="" 
       />
       <Pokeball className="pokemon__img__pattern"/>

@@ -1,0 +1,12 @@
+@use '../abstracts/mixins';
+
+.settings{
+    background-color: red;
+    position: fixed;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    @include mixins.flex(column,center,center,40px);
+
+}
